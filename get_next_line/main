@@ -1,0 +1,19 @@
+/*
+
+int main(void)
+{
+	int fd = open("file.txt", O_RDONLY);
+	if (fd < 0)
+		return (printf("Error al abrir el archivo\n"), 1);
+	char *line;
+	line = get_next_line(fd);
+	while (line)
+	{
+		printf("%s", line);
+		free(line);
+		line = get_next_line(fd);
+	}
+	close(fd);
+	return 0;
+}
+*/
