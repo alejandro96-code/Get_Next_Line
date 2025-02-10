@@ -128,7 +128,7 @@ char	*get_next_line(int fd)
 		return (free(stash), stash = NULL, line);
 	return (line);
 }
-/*
+
 int main(void)
 {
 	int fd = open("file.txt", O_RDONLY);
@@ -145,5 +145,3 @@ int main(void)
 	close(fd);
 	return 0;
 }
-*/
-
