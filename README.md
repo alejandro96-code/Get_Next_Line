@@ -29,7 +29,6 @@ El proyecto se encarga de leer un archivo línea por línea utilizando un búfer
 - Se crea una nueva cadena con la línea leída.
 - Cualquier contenido restante se almacena en `stash` para ser procesado en la siguiente llamada.
 
-
 📌 **¿Cómo cambia con otros tamaños de `BUFFER_SIZE`?**
 Este flujo de ejecución supone que `BUFFER_SIZE = 10`. Es decir, en cada llamada a `read()`, se leen 10 caracteres del archivo. 
 - Si `BUFFER_SIZE = 1` → Se lee carácter por carácter, lo que hace más llamadas a `read()`, pero garantiza que cada `\n` se detecta de inmediato.
