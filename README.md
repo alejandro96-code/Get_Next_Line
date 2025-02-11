@@ -47,7 +47,7 @@ Línea 4
 ### 🛠 Primera llamada a get_next_line(fd);
 
 
-line = get_next_line(fd);
+`line = get_next_line(fd);`
 1️⃣ Inicialización
 fd es el descriptor de archivo del archivo abierto.
 Se declara static char *stash = NULL;
