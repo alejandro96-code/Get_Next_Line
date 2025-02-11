@@ -6,12 +6,12 @@ Get_next_line es una función en C que permite leer una línea completa de un ar
 
 ## 📂 Estructura del Proyecto
 
-📦 get_next_line
-├── 📄 get_next_line.h # Archivo de cabecera con los prototipos de funciones
-├── 📄 get_next_line.c # Implementación del get next line
-├── 📄 get_next_line_utils.c # Implementación de ft_strlen y del strjoin
-├── 📄 file.txt # Archivo que leeremos e imprimiremos por terminal
-└── 📂 checkers # Archivos de ejemplo para compilar
+📦 get_next_line    
+├── 📄 get_next_line.h # Archivo de cabecera con los prototipos de funciones    
+├── 📄 get_next_line.c # Implementación del get next line   
+├── 📄 get_next_line_utils.c # Implementación de ft_strlen y del strjoin    
+├── 📄 file.txt # Archivo que leeremos e imprimiremos por terminal  
+└── 📂 checkers # Archivos de ejemplo para compilar 
 
 ## 📂 Funcionamiento del Proyecto
 
