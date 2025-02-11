@@ -29,15 +29,14 @@ El proyecto se encarga de leer un archivo línea por línea utilizando un búfer
 - Se crea una nueva cadena con la línea leída.
 - Cualquier contenido restante se almacena en `stash` para ser procesado en la siguiente llamada.
 
-## 🔍 Funcionamiento Interno de `get_next_line`
 
-Este flujo de ejecución supone que `BUFFER_SIZE = 10`. Es decir, en cada llamada a `read()`, se leen 10 caracteres del archivo.
-
-### 🔢 ¿Cómo cambia con otros tamaños de `BUFFER_SIZE`?
+📌 **¿Cómo cambia con otros tamaños de `BUFFER_SIZE`?**
+Este flujo de ejecución supone que `BUFFER_SIZE = 10`. Es decir, en cada llamada a `read()`, se leen 10 caracteres del archivo. 
 - Si `BUFFER_SIZE = 1` → Se lee carácter por carácter, lo que hace más llamadas a `read()`, pero garantiza que cada `\n` se detecta de inmediato.
 - Si `BUFFER_SIZE = 100` → Se leería el archivo completo en una sola llamada a `read()`, lo que optimiza rendimiento pero puede desperdiciar memoria si el archivo es muy grande.
 - En general, elegir un `BUFFER_SIZE` entre 10 y 42 es un buen equilibrio entre eficiencia y memoria. 🚀
 
+## 🔍 Funcionamiento Interno de `get_next_line`
 ---
 
 ## 📂 Ejemplo de archivo (`file.txt`)
