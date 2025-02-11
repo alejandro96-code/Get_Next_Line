@@ -1,0 +1,15 @@
+NORMAL
+
+1º crear el archivo indicado en el main
+2º copiarle individualmente cada archivo
+3º cc -Wall -Werror -Wextra -D BUFFER_SIZE=42 get_next_line.c get_next_line_utils.c 
+4º ./a.out
+5º ver que la devolucion es completa
+6º Lanzar valgrind ./a.out y que los alloc y lso frees sean los mismos
+7º copiar el contenido de so_big.txt y cambiar el BUFFER_SIZE= 1, 9999, 100000000
+
+
+BONUS
+
+1º crear los 2 archivos indicados en el main
+realizar los pasos anteriores
