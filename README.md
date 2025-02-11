@@ -153,44 +153,46 @@ Como stash está vacío y read(fd, buffer, BUFFER_SIZE) devuelve 0 (fin de archi
 ### 📌 Salida de la quinta llamada: NULL (Fin del archivo)
 
 ### 📌 Resumen del flujo
-Llamada	buffer leído	stash antes	stash después	line devuelta
-1️⃣	"Línea 1\nLí"	""	"Lí"	"Línea 1\n"
-2️⃣	"nea 2\nLínea "	"Lí"	"Línea "	"Línea 2\n"
-3️⃣	"3\nLínea 4"	"Línea "	"Línea 4"	"Línea 3\n"
-4️⃣	EOF (Restos)	"Línea 4"	""	"Línea 4"
+Llamada	buffer leído	stash antes	stash después	line devuelta   
+1️⃣	"Línea 1\nLí"	""	"Lí"	"Línea 1\n" 
+2️⃣	"nea 2\nLínea "	"Lí"	"Línea "	"Línea 2\n" 
+3️⃣	"3\nLínea 4"	"Línea "	"Línea 4"	"Línea 3\n" 
+4️⃣	EOF (Restos)	"Línea 4"	""	"Línea 4"   
 5️⃣	EOF	""	""	NULL
 
 ### 📌 Explicación de las funciones clave
-🔹 get_next_line(fd)
 
-Administra la lectura del archivo línea por línea.
+#### 🔹 get_next_line(fd)
+
+<h1>Administra la lectura del archivo línea por línea.<h1>
 Usa read() para obtener datos.
 Usa stash para guardar datos entre llamadas.
 Devuelve la línea completa encontrada.
-🔹 ft_line(stash)
 
-Extrae la línea hasta el primer \n.
-🔹 ft_remainder(stash)
+#### 🔹 ft_line(stash)
+Extrae la línea hasta el primer \n. 
 
-Guarda lo que queda en stash para la siguiente llamada.
-🔹 ft_strlen(s)
+#### 🔹 ft_remainder(stash)
+Guarda lo que queda en stash para la siguiente llamada. 
 
-Calcula la longitud de la cadena.
-🔹 ft_strjoin(s1, s2)
+#### 🔹 ft_strlen(s)
+Calcula la longitud de la cadena.   
 
-Une stash con el nuevo contenido leído.
+#### 🔹 ft_strjoin(s1, s2)
+Une stash con el nuevo contenido leído. 
 
 ### 📌 Ejemplo visual del proceso
-📂 Archivo de entrada (file.txt)
 
-Línea 1
-Línea 2
-Línea 3
-Línea 4
+#### 📂 Archivo de entrada (file.txt)
 
-Llamada	Entrada desde file.txt	Salida de get_next_line(fd)
-1️⃣	"Línea 1\nLí"	"Línea 1\n"
-2️⃣	"nea 2\nLínea "	"Línea 2\n"
-3️⃣	"3\nLínea 4"	"Línea 3\n"
-4️⃣	EOF (Restos)	"Línea 4"
-5️⃣	EOF	NULL
+Línea 1 
+Línea 2 
+Línea 3 
+Línea 4 
+
+Llamada	Entrada desde file.txt	Salida de get_next_line(fd) 
+1️⃣ "Línea 1\nLí"	"Línea 1\n" 
+2️⃣	"nea 2\nLínea "	"Línea 2\n" 
+3️⃣	"3\nLínea 4"	"Línea 3\n" 
+4️⃣	EOF (Restos)	"Línea 4"   
+5️⃣	EOF	NULL    
