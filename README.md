@@ -36,7 +36,6 @@ Este flujo de ejecución supone que `BUFFER_SIZE = 10`. Es decir, en cada llamad
 - En general, elegir un `BUFFER_SIZE` entre 10 y 42 es un buen equilibrio entre eficiencia y memoria. 🚀
 
 ## 🔍 Funcionamiento Interno de `get_next_line`
----
 
 ## 📂 Ejemplo de archivo (`file.txt`)
 ```txt
