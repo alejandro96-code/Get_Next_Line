@@ -5,8 +5,8 @@
 /*                                                    +:+ +:+         +:+     */
 /*   By: alejanr2 <alejanr2@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2024/12/24 18:31:47 by alejanr2          #+#    #+#             */
-/*   Updated: 2025/01/10 16:39:43 by alejanr2         ###   ########.fr       */
+/*   Created: 2026/05/05 18:45:00 by alejanr2          #+#    #+#             */
+/*   Updated: 2026/05/05 18:45:00 by alejanr2         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -19,11 +19,10 @@
 
 # include <stdlib.h>
 # include <unistd.h>
-# include <stdio.h>
-# include <fcntl.h>
 
-size_t	ft_strlen(char const *s);
 char	*get_next_line(int fd);
+size_t	ft_strlen(char const *s);
+int		ft_strchr(char *s1, int c);
 char	*ft_strjoin(char *s1, char *s2);
 
 #endif

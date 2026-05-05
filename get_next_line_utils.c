@@ -5,8 +5,8 @@
 /*                                                    +:+ +:+         +:+     */
 /*   By: alejanr2 <alejanr2@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2024/12/24 18:31:47 by alejanr2          #+#    #+#             */
-/*   Updated: 2025/01/10 16:39:28 by alejanr2         ###   ########.fr       */
+/*   Created: 2026/05/05 18:45:00 by alejanr2          #+#    #+#             */
+/*   Updated: 2026/05/05 18:45:00 by alejanr2         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -22,27 +22,41 @@ size_t	ft_strlen(char const *s)
 	return (len);
 }
 
+int	ft_strchr(char *s1, int c)
+{
+	size_t	i;
+
+	i = 0;
+	while (s1[i] != '\0')
+	{
+		if (s1[i] == c)
+			return (1);
+		i++;
+	}
+	return (0);
+}
+
 char	*ft_strjoin(char *s1, char *s2)
 {
 	char	*s3;
-	size_t	cont1;
-	size_t	cont2;
+	size_t	i;
+	size_t	j;
 
 	s3 = malloc(ft_strlen(s1) + ft_strlen(s2) + 1);
-	cont1 = 0;
-	while (s1[cont1] != '\0')
+	if (!s3)
+		return (free(s1), NULL);
+	i = 0;
+	while (s1[i] != '\0')
 	{
-		s3[cont1] = s1[cont1];
-		cont1++;
+		s3[i] = s1[i];
+		i++;
 	}
-	cont2 = 0;
-	while (s2[cont2] != '\0')
+	j = 0;
+	while (s2[j] != '\0')
 	{
-		s3[cont1] = s2[cont2];
-		cont1++;
-		cont2++;
+		s3[i++] = s2[j++];
 	}
-	s3[cont1] = '\0';
+	s3[i] = '\0';
 	free(s1);
 	return (s3);
 }
