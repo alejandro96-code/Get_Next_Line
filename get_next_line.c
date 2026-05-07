@@ -6,13 +6,11 @@
 /*   By: alejanr2 <alejanr2@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/05/05 18:45:00 by alejanr2          #+#    #+#             */
-/*   Updated: 2026/05/05 18:50:57 by alejanr2         ###   ########.fr       */
+/*   Updated: 2026/05/07 13:56:10 by alejanr2         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "get_next_line.h"
-#include <fcntl.h>
-#include <stdio.h>
 
 static char	*line_from_stash(char *stash)
 {
@@ -88,7 +86,7 @@ static char	*read_to_stash(int fd, char *stash)
 
 char	*get_next_line(int fd)
 {
-	static char	*stash;
+	static char		*stash;
 	char			*line;
 
 	if (fd < 0 || BUFFER_SIZE <= 0)
@@ -112,6 +110,10 @@ char	*get_next_line(int fd)
 	return (line);
 }
 /*
+
+#include <fcntl.h>
+#include <stdio.h>
+
 int	main(int argc, char **argv)
 {
 	int		fd;
