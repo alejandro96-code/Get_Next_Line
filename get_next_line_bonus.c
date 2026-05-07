@@ -6,7 +6,7 @@
 /*   By: alejanr2 <alejanr2@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/05/05 18:50:00 by alejanr2          #+#    #+#             */
-/*   Updated: 2026/05/07 13:56:18 by alejanr2         ###   ########.fr       */
+/*   Updated: 2026/05/07 14:12:31 by alejanr2         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -109,29 +109,60 @@ char	*get_next_line(int fd)
 		return (free(stash[fd]), stash[fd] = NULL, line);
 	return (line);
 }
-/*
 
+/*
 #include <fcntl.h>
 #include <stdio.h>
 
 int	main(int argc, char **argv)
 {
-	int		fd;
-	char	*line;
+	int		*fds;
+	char	**lines;
+	int		i;
+	int		active;
 
-	if (argc != 2)
+	if (argc < 2)
 		return (1);
-	fd = open(argv[1], O_RDONLY);
-	if (fd < 0)
-		return (1);
-	line = get_next_line(fd);
-	while (line)
+	fds = malloc(sizeof(int) * (argc - 1));
+	lines = malloc(sizeof(char *) * (argc - 1));
+	if (!fds || !lines)
+		return (free(fds), free(lines), 1);
+	i = 0;
+	while (i < argc - 1)
 	{
-		printf("%s", line);
-		free(line);
-		line = get_next_line(fd);
+		fds[i] = open(argv[i + 1], O_RDONLY);
+		if (fds[i] < 0)
+		{
+			while (i > 0)
+				close(fds[--i]);
+			return (free(fds), free(lines), 1);
+		}
+		lines[i] = get_next_line(fds[i]);
+		i++;
 	}
-	close(fd);
+	active = 1;
+	while (active)
+	{
+		active = 0;
+		i = 0;
+		while (i < argc - 1)
+		{
+			if (lines[i])
+			{
+				printf("%s", lines[i]);
+				free(lines[i]);
+				lines[i] = get_next_line(fds[i]);
+			}
+			if (lines[i])
+				active = 1;
+			i++;
+		}
+	}
+	i = 0;
+	while (i < argc - 1)
+		close(fds[i++]);
+	free(fds);
+	free(lines);
 	return (0);
 }
-    */
+*/
